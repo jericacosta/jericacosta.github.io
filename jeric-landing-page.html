@@ -1,0 +1,454 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Jeric Acosta — Automation Specialist</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap" rel="stylesheet"/>
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  :root {
+    --bg: #f5f4f0;
+    --surface: #ffffff;
+    --surface2: #f0efe9;
+    --border: rgba(0,0,0,0.1);
+    --border-strong: rgba(0,0,0,0.18);
+    --text: #1a1a1a;
+    --muted: #6b6b6b;
+    --hint: #9b9b9b;
+    --accent: #1a1a1a;
+    --green: #22c55e;
+  }
+
+  body {
+    font-family: 'Inter', -apple-system, sans-serif;
+    background: var(--bg);
+    color: var(--text);
+    min-height: 100vh;
+  }
+
+  .page {
+    max-width: 640px;
+    margin: 0 auto;
+    padding: 3rem 1.5rem 5rem;
+  }
+
+  /* HERO */
+  .hero {
+    text-align: center;
+    padding: 3rem 0 2.5rem;
+    border-bottom: 0.5px solid var(--border);
+  }
+
+  .avatar-wrap {
+    position: relative;
+    width: 100px;
+    height: 100px;
+    margin: 0 auto 1.5rem;
+  }
+
+  /* ─── HOW TO ADD YOUR PHOTO ───────────────────────────────────────────────
+     Replace the .avatar-circle below with:
+     <img src="your-photo.jpg" alt="Jeric Acosta"
+          style="width:100px;height:100px;border-radius:50%;object-fit:cover;
+                 border:1px solid rgba(0,0,0,0.1);">
+     ──────────────────────────────────────────────────────────────────────── */
+  .avatar-circle {
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    background: var(--surface2);
+    border: 1px solid var(--border);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 30px;
+    font-weight: 500;
+    color: var(--muted);
+    letter-spacing: -0.02em;
+  }
+
+  .avatar-badge {
+    position: absolute;
+    bottom: 4px; right: 4px;
+    width: 18px; height: 18px;
+    border-radius: 50%;
+    background: var(--green);
+    border: 2.5px solid var(--bg);
+  }
+
+  .hero-name {
+    font-size: 22px;
+    font-weight: 600;
+    letter-spacing: -0.03em;
+    margin-bottom: 6px;
+  }
+
+  .hero-role {
+    font-size: 13px;
+    color: var(--muted);
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    margin-bottom: 1.75rem;
+  }
+
+  /* ─── EDIT YOUR PITCH ─────────────────────────────────────────────────── */
+  .hero-pitch {
+    font-size: 15px;
+    line-height: 1.8;
+    color: var(--text);
+    max-width: 500px;
+    margin: 0 auto 1.5rem;
+    text-align: left;
+    border-left: 2px solid var(--border-strong);
+    padding-left: 1.1rem;
+  }
+
+  .edit-hint {
+    display: inline-block;
+    font-size: 11px;
+    color: var(--hint);
+    background: var(--surface2);
+    border: 0.5px solid var(--border);
+    border-radius: 6px;
+    padding: 4px 10px;
+  }
+
+  /* SECTIONS */
+  .section {
+    padding: 2rem 0;
+    border-bottom: 0.5px solid var(--border);
+  }
+
+  .section-label {
+    font-size: 11px;
+    font-weight: 500;
+    color: var(--hint);
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    margin-bottom: 1rem;
+  }
+
+  /* OFFER */
+  .offer-banner {
+    background: var(--surface);
+    border: 0.5px solid var(--border);
+    border-radius: 12px;
+    padding: 1.25rem 1.5rem;
+    margin-bottom: 1rem;
+  }
+
+  .offer-headline {
+    font-size: 18px;
+    font-weight: 600;
+    letter-spacing: -0.02em;
+    margin-bottom: 6px;
+  }
+
+  .offer-body {
+    font-size: 14px;
+    color: var(--muted);
+    line-height: 1.65;
+  }
+
+  .offer-body strong { font-weight: 500; color: var(--text); }
+
+  .proof-row {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 1rem;
+  }
+
+  .proof-card {
+    flex: 1;
+    background: var(--surface2);
+    border-radius: 10px;
+    padding: 1rem;
+    text-align: center;
+  }
+
+  .proof-num {
+    font-size: 24px;
+    font-weight: 600;
+    letter-spacing: -0.04em;
+    margin-bottom: 4px;
+  }
+
+  .proof-label {
+    font-size: 11px;
+    color: var(--muted);
+  }
+
+  .testimonial {
+    background: var(--surface);
+    border: 0.5px solid var(--border);
+    border-left: 2px solid var(--border-strong);
+    border-radius: 0 10px 10px 0;
+    padding: 1rem 1.25rem;
+  }
+
+  .testimonial-text {
+    font-size: 14px;
+    line-height: 1.65;
+    color: var(--text);
+    margin-bottom: 8px;
+  }
+
+  .testimonial-author {
+    font-size: 11px;
+    color: var(--hint);
+  }
+
+  /* SKILLS */
+  .skills-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(175px, 1fr));
+    gap: 10px;
+  }
+
+  .skill-card {
+    background: var(--surface);
+    border: 0.5px solid var(--border);
+    border-radius: 12px;
+    padding: 1rem 1.25rem;
+    transition: border-color 0.15s;
+  }
+
+  .skill-card:hover { border-color: var(--border-strong); }
+
+  .skill-icon { font-size: 16px; margin-bottom: 8px; }
+
+  .skill-name {
+    font-size: 13px;
+    font-weight: 500;
+    margin-bottom: 4px;
+  }
+
+  .skill-desc {
+    font-size: 12px;
+    color: var(--muted);
+    line-height: 1.55;
+  }
+
+  /* CONTACT */
+  .contact-section { padding: 2rem 0 0; }
+
+  .contact-intro {
+    font-size: 14px;
+    color: var(--muted);
+    line-height: 1.65;
+    margin-bottom: 1.25rem;
+  }
+
+  .contact-links { display: flex; flex-direction: column; gap: 8px; }
+
+  .contact-link {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 14px 16px;
+    background: var(--surface);
+    border: 0.5px solid var(--border);
+    border-radius: 12px;
+    text-decoration: none;
+    color: var(--text);
+    transition: border-color 0.15s, background 0.15s;
+  }
+
+  .contact-link:hover {
+    border-color: var(--border-strong);
+    background: var(--surface2);
+  }
+
+  .cl-icon {
+    width: 34px; height: 34px;
+    border-radius: 8px;
+    background: var(--surface2);
+    display: flex; align-items: center; justify-content: center;
+    font-size: 15px; flex-shrink: 0;
+  }
+
+  .cl-text { flex: 1; }
+  .cl-label { font-size: 14px; font-weight: 500; }
+  .cl-sub { font-size: 12px; color: var(--muted); margin-top: 2px; }
+  .cl-arrow { font-size: 14px; color: var(--hint); }
+
+  .cta-button {
+    display: block;
+    width: 100%;
+    margin-top: 12px;
+    padding: 15px;
+    background: var(--text);
+    color: #fff;
+    border: none;
+    border-radius: 12px;
+    font-size: 15px;
+    font-weight: 500;
+    cursor: pointer;
+    text-align: center;
+    text-decoration: none;
+    letter-spacing: -0.01em;
+    transition: opacity 0.15s;
+  }
+
+  .cta-button:hover { opacity: 0.82; }
+
+  .footer-note {
+    text-align: center;
+    font-size: 12px;
+    color: var(--hint);
+    margin-top: 2.5rem;
+  }
+
+  .footer-note a { color: inherit; text-decoration: underline; }
+
+  @media (max-width: 480px) {
+    .page { padding: 2rem 1.25rem 4rem; }
+    .skills-grid { grid-template-columns: 1fr 1fr; }
+    .proof-num { font-size: 20px; }
+  }
+</style>
+</head>
+<body>
+<div class="page">
+
+  
+  <div class="hero">
+    <div class="avatar-wrap">
+      
+      <div class="avatar-circle">JA</div>
+      <div class="avatar-badge"></div>
+    </div>
+
+    <div class="hero-name">Jeric Acosta</div>
+    <div class="hero-role">Tech VA · No-Code Automation Specialist</div>
+
+    
+    <div class="hero-pitch">
+      Instead of manually chasing tasks, fixing errors or doing same work over and over again... How about smarter solutions, that executes automatically? I specialize in No-code Automations that saves time, every time — integrating your favorite apps for productivity without anyone even looking.
+    </div>
+
+    <span class="edit-hint"></span>
+  </div>
+
+  <!-- OFFER -->
+  <div class="section">
+    <div class="section-label">Hear me out</div>
+    <div class="offer-banner">
+      <div class="offer-headline">AN OFFER THAT YOU CAN'T REFUSE</div>
+      <div class="offer-body">
+        Just a simple offer — 
+        <strong>If I can't save you time, you owe me nothing.</strong>
+       I will remove the pressure. You judge it, you test it, or do anything that you want. Just straight producing results. Fair enough?  
+      </div>
+    </div>
+    <div class="proof-row">
+      <div class="proof-card">
+        <div class="proof-num">10+</div>
+        <div class="proof-label">Automations built</div>
+      </div>
+      <div class="proof-card">
+        <div class="proof-num">0</div>
+        <div class="proof-label">Lines of code</div>
+      </div>
+      <div class="proof-card">
+        <div class="proof-num">24/7</div>
+        <div class="proof-label">Systems running</div>
+      </div>
+    </div>
+    <div class="testimonial">
+      
+      <div class="testimonial-text">"We were drowning in repetitive tasks that burns us out every single day. What used to take hours of manual work is now handled seamlessly—smooth, consistent, and creative. This is not just an automation— It's a smarter way to implement."</div>
+      <div class="testimonial-author">— Satisfied client · Professional &amp; business owner</div>
+    </div>
+  </div>
+
+  <!-- SKILLS -->
+  <div class="section">
+    <div class="section-label">What I build for you</div>
+    <div class="skills-grid">
+      <div class="skill-card">
+        <div class="skill-icon">⚡</div>
+        <div class="skill-name">Zapier workflows</div>
+        <div class="skill-desc">Integrate your favorite apps into seamless workflows.</div>
+      </div>
+      <div class="skill-card">
+        <div class="skill-icon">📋</div>
+        <div class="skill-name">Lead capture systems</div>
+        <div class="skill-desc">Google Forms → live database with dashboards. Never lose a lead.</div>
+      </div>
+      <div class="skill-card">
+        <div class="skill-icon">⚡</div>
+        <div class="skill-name">Ai-powered automations</div>
+        <div class="skill-desc">AI + your favorite app. Provide your quality data, and the system will handle the rest.</div>
+      </div>
+      <div class="skill-card">
+        <div class="skill-icon">💬</div>
+        <div class="skill-name">Auto-reply systems</div>
+        <div class="skill-desc"> Messaging platforms — instant responses without you looking.</div>
+      </div>
+      <div class="skill-card">
+        <div class="skill-icon">🗂️</div>
+        <div class="skill-name">File organizer</div>
+        <div class="skill-desc">Email attachments, auto-sorted into Google Drive folders. Efficiently structured.</div>
+      </div>
+      <div class="skill-card">
+        <div class="skill-icon">✅</div>
+        <div class="skill-name">Task automation</div>
+        <div class="skill-desc">Labeled Gmail → Trello cards. Your inbox becomes your task board.</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- CONTACT -->
+  <div class="contact-section">
+    <div class="section-label">Reach out</div>
+    <div class="contact-intro">Ready to stop doing things manually? Pick how you want to connect — I'll respond fast.</div>
+    <div class="contact-links">
+      <a class="contact-link" href="https://jericmatthewacosta.github.io/" target="_blank">
+        <div class="cl-icon">📝</div>
+        <div class="cl-text">
+          <div class="cl-label">Check out my Portfolio</div>
+          <div class="cl-sub">Some of my projects·</div>
+        </div>
+        <div class="cl-arrow">↗</div>
+      </a>
+      <a class="contact-link" href="https://calendly.com/calendarbooking/personal-meeting" target="_blank">
+        <div class="cl-icon">📅</div>
+        <div class="cl-text">
+          <div class="cl-label">Book a discovery call</div>
+          <div class="cl-sub">1 hour · Get Automated.</div>
+        </div>
+        <div class="cl-arrow">↗</div>
+      </a>
+      <a class="contact-link" href="mailto:jericmatthewacosta@gmail.com">
+        <div class="cl-icon">✉️</div>
+        <div class="cl-text">
+          <div class="cl-label">jericmatthewacosta@gmail.com</div>
+          <div class="cl-sub">Direct email</div>
+        </div>
+        <div class="cl-arrow">↗</div>
+      </a>
+      <a class="contact-link" href="https://www.linkedin.com/in/jeric-matthew-acosta-6283013b8/" target="_blank">
+        <div class="cl-icon">💼</div>
+        <div class="cl-text">
+          <div class="cl-label">LinkedIn</div>
+          <div class="cl-sub">Connect professionally</div>
+        </div>
+        <div class="cl-arrow">↗</div>
+      </a>
+    </div>
+    <a class="cta-button" href="https://calendly.com/calendarbooking/personal-meeting" target="_blank">
+      Get automated →
+    </a>
+  </div>
+
+  <div class="footer-note">
+    © 2026 Jeric Acosta · No-code Automation 
+    
+  </div>
+
+</div>
+</body>
+</html>
